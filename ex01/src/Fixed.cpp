@@ -15,6 +15,20 @@ Fixed::Fixed(const Fixed& cp)
     return ;
 }
 
+Fixed::Fixed(const int input)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->_ixed_point = input << this->_fractional;
+    return ;
+}
+
+Fixed::Fixed(const float input)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->_ixed_point = roundf(input * (1 << this->_fractional));
+    return ;
+}
+
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
@@ -23,14 +37,22 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->_ixed_point);
 }
 
 void    Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits function called" << std::endl;
     this->_ixed_point = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+    return ((float)this->_ixed_point / (float)(1 << this->_fractional));
+}
+
+int Fixed::toInt(void) const
+{
+    return (this->_ixed_point >> this->_fractional);
 }
 
 Fixed &Fixed::operator=(const Fixed &cp)
@@ -39,4 +61,10 @@ Fixed &Fixed::operator=(const Fixed &cp)
 	if (this != &cp)
 		this->_ixed_point = cp.getRawBits();
 	return *this;
+}
+
+std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
+{
+	o << fixed.toFloat();
+	return (o);
 }

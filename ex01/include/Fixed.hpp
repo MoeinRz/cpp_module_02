@@ -9,7 +9,7 @@ class Fixed
 {
     private:
         static const int    _fractional;
-        int                 _ixed_point;
+        int                 _fixed_point;
     public:
         Fixed();
 		Fixed(const int input);
@@ -19,9 +19,9 @@ class Fixed
 
         int     getRawBits(void) const;
         void    setRawBits(int const raw);
-        Fixed &operator=(const Fixed &src);
-        float toFloat( void ) const;
-        int toInt( void ) const;
+        Fixed   &operator=(const Fixed &src);
+        float   toFloat( void ) const;
+        int     toInt( void ) const;
 };
 
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);

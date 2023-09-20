@@ -7,7 +7,7 @@ class Fixed
 {
     private:
         static const int    _fractional;
-        int                 _ixed_point;
+        int                 _fixed_point;
     public:
         Fixed();
         ~Fixed();

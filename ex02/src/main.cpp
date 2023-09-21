@@ -2,7 +2,6 @@
 
 int main( void )
 {
-
     Fixed (3.12f);
     Fixed a;
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );

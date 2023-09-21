@@ -50,7 +50,7 @@ int Fixed::toInt(void) const
     return (this->_fixed_point >> this->_fractional);
 }
 
-Fixed &Fixed::operator=(const Fixed &cp)
+Fixed   &Fixed::operator=(const Fixed &cp)
 {
 	if (this != &cp)
 		this->_fixed_point = cp.getRawBits();

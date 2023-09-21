@@ -40,6 +40,7 @@ class Fixed
 		Fixed	operator--(int);
 
 	    static const Fixed &max(const Fixed &a, const Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
 };
 
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);

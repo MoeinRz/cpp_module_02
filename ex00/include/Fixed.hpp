@@ -17,5 +17,4 @@ class Fixed
         Fixed &operator=(const Fixed &src);
 };
 
-
 # endif
